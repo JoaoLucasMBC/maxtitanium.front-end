@@ -61,11 +61,11 @@ const ProductCreate = () => {
   };
 
   return (
-    <div className=" max-w-lg mx-auto my-10 p-5 border border-gray-300 rounded-lg shadow-md bg-white">
+    <div className=" max-w-lg mx-auto my-10 p-5 border border-blue-300 rounded-lg shadow-md bg-white">
       <h2 className="text-2xl font-bold text-center mb-5">Create Product</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="form-group">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name:</label>
+          <label htmlFor="name" className="block text-sm font-medium text-blue-700">Name:</label>
           <input
             type="text"
             id="name"
@@ -73,11 +73,11 @@ const ProductCreate = () => {
             value={form.name}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-blue-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price:</label>
+          <label htmlFor="price" className="block text-sm font-medium text-blue-700">Price:</label>
           <input
             type="number"
             step="0.01"
@@ -86,11 +86,11 @@ const ProductCreate = () => {
             value={form.price}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-blue-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description:</label>
+          <label htmlFor="description" className="block text-sm font-medium text-blue-700">Description:</label>
           <input
             type="text"
             id="description"
@@ -98,11 +98,11 @@ const ProductCreate = () => {
             value={form.description}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-blue-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category:</label>
+          <label htmlFor="category" className="block text-sm font-medium text-blue-700">Category:</label>
           <input
             type="text"
             id="category"
@@ -110,11 +110,11 @@ const ProductCreate = () => {
             value={form.category}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-blue-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="brand" className="block text-sm font-medium text-gray-700">Brand:</label>
+          <label htmlFor="brand" className="block text-sm font-medium text-blue-700">Brand:</label>
           <input
             type="text"
             id="brand"
@@ -122,11 +122,11 @@ const ProductCreate = () => {
             value={form.brand}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-blue-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="stock" className="block text-sm font-medium text-gray-700">Stock:</label>
+          <label htmlFor="stock" className="block text-sm font-medium text-blue-700">Stock:</label>
           <input
             type="number"
             id="stock"
@@ -134,7 +134,7 @@ const ProductCreate = () => {
             value={form.stock}
             onChange={handleChange}
             required
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-blue-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
         <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">

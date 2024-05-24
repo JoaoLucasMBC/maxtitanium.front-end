@@ -8,24 +8,27 @@ const Login = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    try {
-        const user = await fetch('http://localhost:8080/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-        });
-
-        if (!user.ok) {
-            throw new Error('Invalid credentials');
-        }
-
-        localStorage.setItem('token', user.token)
-        navigate('/create-order');
-    } catch (error) {
-        alert("Failed to log in: " + error.message);
-    }
+    await fetch('http://localhost:8080/auth/login', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to log in');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const token = data.token;
+      localStorage.setItem('token', token);
+      navigate('/create-order');
+    })
+    .catch(error => {
+      alert("Failed to log in: " + error.message);
+    });
   };
 
   return (
