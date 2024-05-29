@@ -11,9 +11,9 @@ const OrderCreate = () => {
     }, []);
 
   const [form, setForm] = useState({
-    id_client: '',
+    client_id: '',
     address: '',
-    orderDetails: [{ product_id: '', quantity: '' }],
+    products: [{ product_id: '', quantity: '' }],
   });
 
   const handleChange = (e) => {
@@ -23,32 +23,34 @@ const OrderCreate = () => {
 
   const handleOrderDetailChange = (index, e) => {
     const { name, value } = e.target;
-    const updatedOrderDetails = [...form.orderDetails];
-    updatedOrderDetails[index][name] = value;
-    setForm({ ...form, orderDetails: updatedOrderDetails });
+    const updatedProducts = [...form.products];
+    updatedProducts[index][name] = value;
+    setForm({ ...form, products: updatedProducts });
   };
 
   const addOrderDetail = () => {
-    setForm({ ...form, orderDetails: [...form.orderDetails, { product_id: '', quantity: '' }] });
+    setForm({ ...form, products: [...form.products, { product_id: '', quantity: '' }] });
   };
 
   const removeOrderDetail = (index) => {
-    const updatedOrderDetails = [...form.orderDetails];
-    updatedOrderDetails.splice(index, 1);
-    setForm({ ...form, orderDetails: updatedOrderDetails });
+    const updatedProducts = [...form.products];
+    updatedProducts.splice(index, 1);
+    setForm({ ...form, products: updatedProducts });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const order = {
-      id_client: parseInt(form.id_client, 10),
+      idClient: form.client_id,
       address: form.address,
-      orderDetails: form.orderDetails.map(detail => ({
-        product_id: parseInt(detail.product_id, 10),
+      products: form.products.map(detail => ({
+        idProduct: detail.product_id,
         quantity: parseInt(detail.quantity, 10),
       })),
     };
+
+    console.log(order)
 
     try {
       const response = await fetch('http://localhost:8080/orders', {
@@ -81,12 +83,12 @@ const OrderCreate = () => {
         <div>
           <h3 className="text-xl font-semibold mb-3">Client Information</h3>
           <div className="form-group">
-            <label htmlFor="id_client" className="block text-sm font-medium text-blue-700">Client ID:</label>
+            <label htmlFor="client_id" className="block text-sm font-medium text-blue-700">Client ID:</label>
             <input
               type="text"
-              id="id_client"
-              name="id_client"
-              value={form.id_client}
+              id="client_id"
+              name="client_id"
+              value={form.client_id}
               onChange={handleChange}
               required
               className="mt-1 block w-full border border-blue-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500"
@@ -109,7 +111,7 @@ const OrderCreate = () => {
         <div>
           <h3 className="text-xl font-semibold mb-3">Order Details</h3>
           <div className="space-y-4">
-            {form.orderDetails.map((detail, index) => (  
+            {form.products.map((detail, index) => (  
               <div key={index} className="form-group">
                 <h2 className="font-bold">Product {index+1}</h2>
                 <label htmlFor={`product_id_${index}`} className="block text-sm font-medium text-blue-700">Product ID:</label>
